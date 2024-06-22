@@ -16,8 +16,8 @@ USAGE:
 (8) Declare values for these properties: `jwt.secret-key`, `jwt.life-time.milliseconds`, and `jwt.issuer` in your properties file. 
 
 EXAMPLE:
-`
-public class AuthService {
+
+`public class AuthService {
 @Autowired
 private JWTService jwtService;
 
