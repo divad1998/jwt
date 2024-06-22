@@ -17,7 +17,6 @@ import com.nigenial.spring.boot.jwt.service.JWTService;
 
 import java.io.IOException;
 
-@Component
 public class JWTFilter extends OncePerRequestFilter {
 
     @Autowired
