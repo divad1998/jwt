@@ -1,4 +1,4 @@
-package spring.boot.jwt.filter;
+package com.nigenial.spring.boot.jwt.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import spring.boot.jwt.service.JWTService;
+import com.nigenial.spring.boot.jwt.service.JWTService;
 
 import java.io.IOException;
 

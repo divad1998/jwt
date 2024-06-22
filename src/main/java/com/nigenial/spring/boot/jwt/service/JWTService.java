@@ -1,4 +1,4 @@
-package spring.boot.jwt.service;
+package com.nigenial.spring.boot.jwt.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
