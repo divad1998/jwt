@@ -18,10 +18,10 @@ USAGE:
 EXAMPLE:
 `
 public class AuthService {
-`@Autowired
-  private JWTService jwtService;
-`
-`public ResponseEntity<LoginResponse> authenticate(LoginRequest request){
+@Autowired
+private JWTService jwtService;
+
+public ResponseEntity<LoginResponse> authenticate(LoginRequest request){
 
         Authentication auth = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -34,9 +34,8 @@ public class AuthService {
         return null;
     }
  }   
-  `
 
-  `
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
