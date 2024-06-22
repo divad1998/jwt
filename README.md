@@ -18,22 +18,22 @@ USAGE:
 EXAMPLE:
 
 `public class AuthService {
-@Autowired
-private JWTService jwtService;
+        @Autowired
+        private JWTService jwtService;
 
-public ResponseEntity<LoginResponse> authenticate(LoginRequest request){
+        public ResponseEntity<LoginResponse> authenticate(LoginRequest request){
 
-        Authentication auth = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-
-        if( auth != null ){
-            AccountUser user = userRepository.findByUsername(request.getUsername());
-            String token = jwtService.createToken(user);
-            return new ResponseEntity<>(LoginResponse.builder().user(user).token(token).build(), HttpStatus.OK);
+                Authentication auth = authenticationManager
+                        .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+        
+                if( auth != null ){
+                    AccountUser user = userRepository.findByUsername(request.getUsername());
+                    String token = jwtService.createToken(user);
+                    return new ResponseEntity<>(LoginResponse.builder().user(user).token(token).build(), HttpStatus.OK);
+                }
+                return null;
         }
-        return null;
-    }
- }   
+}   
 
 
 @Configuration
@@ -57,7 +57,6 @@ public class SecurityConfig {
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-}
-`
+}`
 
 NOTE: you don't need to declare `spring-boot-starter-web` and `spring-boot-starter-security` dependencies again, because they are transitivelty imported by the library.
