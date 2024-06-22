@@ -19,13 +19,13 @@ import java.util.function.Function;
 public class JWTService {
 
     @Value("${jwt.secret-key}")
-    private static String SECRET_KEY;
+    private String SECRET_KEY;
 
     @Value("${jwt.life-time.milliseconds}")
-    private static int EXPIRATION_TIME;
+    private int EXPIRATION_TIME;
 
     @Value("${jwt.issuer}")
-    private static String ISSUER;
+    private String ISSUER;
 
     private Key getSigningKey(){
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);

@@ -1,0 +1,6 @@
+#jwt:
+#  secret-key: = 5367566B59703373357638792F423F4528482B4D6251655468576D5A71347437
+#  life-time:
+#    milliseconds: 300
+#  issuer: Test
+
