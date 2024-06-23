@@ -1,5 +1,5 @@
 ### ***ABOUT***
-This library for development environments which provides the necessary JWT configuration for securing your Spring boot API with JWT. 
+A library for development environments which provides the necessary JWT configuration for securing your Spring boot API with JWT. 
 ###### Provided configuration: 
 1. Authentication: creates jwt token with userdetails, secret-key, expiration time and issuer (using a JWTService class)
 2. Authorization: validates token for expiration and any related issue (using a JWTFIlter class)
