@@ -1,23 +1,35 @@
-ABOUT:
-This encapsulates the necessary JWT configuration when securing your Spring boot API with JWT. 
-Provided configuration: 
-(1) Authentication: creates jwt token with userdetails, secret-key, expiration time and issuer
-(2) Authorization: validates token for expiration and any related issue
+### ***ABOUT***
+This library provides the necessary JWT configuration for securing your Spring boot API with JWT. 
+###### Provided configuration: 
+1. Authentication: creates jwt token with userdetails, secret-key, expiration time and issuer (using a JWTService class)
+2. Authorization: validates token for expiration and any related issue (using a JWTFIlter class)
 
-USAGE:
-(1) Open terminal
-(2) Clone repo: `git clone https://github.com/divad1998/jwt.git`
-(2) Enter `cd jwt` 
-(3) Run `mvn clean install`
-(4) Enter `cd target`
-(5) Enter `mvn install:install-file -Dfile=spring.boot.jwt-0.0.1.jar -DgroupId=com.nigenial -DartifactId=spring.boot.jwt -Dversion=0.0.1 -Dpackaging=jar`
-(6) Declare the library as a dependency in your pom.xml (using the above group id, artifact id and version).
-(7) Add this to your MAIN class (below @SpringBootApplication): `@ComponentScan(basePackages = {"com.nigenial", "<your-project-root-package"})`
-(8) Declare values for these properties: `jwt.secret-key`, `jwt.life-time.milliseconds`, and `jwt.issuer` in your properties file. 
+### ***USAGE***
+1. Open terminal
+2. Clone repo: `git clone https://github.com/divad1998/jwt.git`
+3. Enter and hit `cd jwt` 
+4. Enter and hit `mvn clean install`
+5. Enter and hit `cd target`
+6. Enter and hit `mvn install:install-file -Dfile=spring.boot.jwt-0.0.1.jar -DgroupId=com.nigenial -DartifactId=spring.boot.jwt -Dversion=0.0.1 -Dpackaging=jar`
+7. Declare the library as a dependency in your pom.xml (using the above group id, artifact id and version).
+8. Add this to your MAIN class (below @SpringBootApplication): `@ComponentScan(basePackages = {"com.nigenial", "<your-project-root-package"})`
+9. Declare values for these properties: `jwt.secret-key`, `jwt.life-time.milliseconds`, and `jwt.issuer` in your properties file. 
 
-EXAMPLE:
+### ***EXAMPLE***
 
-`public class AuthService {
+```java
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.nigenial", "com.example.demo"})
+public class ProjectTwoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProjectTwoApplication.class, args);
+	}
+
+}
+
+@Service
+public class AuthService {
         @Autowired
         private JWTService jwtService;
 
@@ -57,6 +69,6 @@ public class SecurityConfig {
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-}`
-
-NOTE: you don't need to declare `spring-boot-starter-web` and `spring-boot-starter-security` dependencies again, because they are transitivelty imported by the library.
+}
+```
+**NOTE**: you don't need to declare `spring-boot-starter-web` and `spring-boot-starter-security` dependencies again, because they are transitivelty imported by the library.
