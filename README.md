@@ -1,5 +1,5 @@
 ### ***ABOUT***
-A library for development environments which provides the necessary JWT configuration for securing your Spring boot API with JWT. 
+A library which provides the necessary JWT configuration for securing your Spring boot API with JWT. 
 ###### Provided configuration: 
 1. Authentication: creates jwt token with userdetails, secret-key, expiration time and issuer (using a JWTService class)
 2. Authorization: validates token for expiration and any related issue (using a JWTFIlter class)
@@ -71,4 +71,7 @@ public class SecurityConfig {
     }
 }
 ```
-**NOTE**: you don't need to declare `spring-boot-starter-web` and `spring-boot-starter-security` dependencies again, because they are transitivelty imported by the library.
+**NOTE**: 
+1. you don't need to declare `spring-boot-starter-web` and `spring-boot-starter-security` dependencies again, because they are transitivelty imported by the library.
+2. Only suitable for learning environments (until I host it on Maven Central).
+3. Thanks.
